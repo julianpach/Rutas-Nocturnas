@@ -1,0 +1,6 @@
+# Datos reales: NUNCA al repositorio
+data/real/
+.env
+__pycache__/
+.ipynb_checkpoints/
+.venv/
