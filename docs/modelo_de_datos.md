@@ -57,7 +57,7 @@
 |---|---|---|
 | id_asignacion | int | Identificador unico de asignacion generada |
 | fch_asignacion | fecha | dia de la operacion |
-| franja_op | fecha y hora | Hora de la operacion asignada | 
+| franja_op | fecha y hora | Hora de la operacion asignada |
 | drv_name | texto | nombre del conductor asignado |
 | pl_vehi | texto | placa del vehiculo asignado |
 
@@ -69,8 +69,14 @@
 | sol_id | texto | identificador de solicitud |
 | hr_est | fecha | Hora estimada de llegada |
 
-
-
+## Reglas del modelo
+1. **Validación de dirección temporal:** Si: cambio_dir = si - definir dir_temp;
+ si: cambio_dir = no - se conserva datos de dir_registrada y dir_temp se mantiene vacia.
+2. **Unicidad de solicitud:** No pueden haber dos solicitudes el mismo dia fecha_op bajo el mismo cod_empleado.
+ Si hay dos id_solicitud con el mismo cod_empleado y fecha_op se debe rechazar o reemplazar la anterior
+ por una nueva eliminando la discrepancia
+3. **Asignacion vehicular:** Para uasignacion el drv_name solo puede estar asociado a un pl_vehi en una
+ misma fch_asignacion, de lo contrario rechazar/reemplazar discrepancia
 
 
 
